@@ -21,6 +21,7 @@ const EasyMode = () => {
   const [cards, setCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   /*
   ============
@@ -34,6 +35,8 @@ const EasyMode = () => {
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
+
       if (choiceOne.src === choiceTwo.src) {
         setCards((prev) => {
           return prev.map((card) => {
@@ -72,6 +75,7 @@ const EasyMode = () => {
   const resetTurn = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
+    setDisabled(false);
   };
 
   return (
@@ -87,6 +91,7 @@ const EasyMode = () => {
               card={card}
               handleChoice={handleChoice}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
+              disabled={disabled}
             />
           ))}
         </section>
