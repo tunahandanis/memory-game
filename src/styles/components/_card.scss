@@ -1,17 +1,17 @@
 .card-grid--easy {
   margin: 3em;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5em;
-  place-items: center;
+  grid-template-columns: repeat(4, 12em);
+  gap: 3em;
   padding: 5em;
+  justify-content: center;
 }
 
 .card {
   position: relative;
 
   &__front {
-    height: 12em;
+    width: 100%;
     padding: 0.5em;
     background-color: #f2f2f2;
     position: absolute;
