@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Card from "../components/Card";
 
 const cardImages = [
@@ -10,18 +12,51 @@ const cardImages = [
 ];
 
 const EasyMode = () => {
+  /*
+  ===========
+  STATE HOOKS
+  ===========
+  */
+
+  const [cards, setCards] = useState(null);
+
+  /*
+  ============
+  EFFECT HOOKS
+  ============
+  */
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
+  /*
+  =========
+  FUNCTIONS
+  =========
+  */
+
+  const shuffleCards = () => {
+    const shuffledCards = [...cardImages, ...cardImages]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+
+    setCards(shuffledCards);
+  };
+
   return (
-    <div>
+    <>
       <header>
         <h2>TILE Points: </h2>
       </header>
-
-      <div>
-        {cardImages.map((card) => (
-          <Card card={card} />
-        ))}
-      </div>
-    </div>
+      {cards && (
+        <section>
+          {cards.map((card) => (
+            <Card key={card.id} card={card} />
+          ))}
+        </section>
+      )}
+    </>
   );
 };
 
