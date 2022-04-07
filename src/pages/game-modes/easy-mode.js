@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import Card from "../components/Card";
 
+import { usePointsContext } from "../../context/context";
+
 const cardImages = [
   { src: "/static/icons/bitcoin.png", matched: false },
   { src: "/static/icons/ethereum.png", matched: false },
@@ -22,6 +24,7 @@ const EasyMode = () => {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [countdown, setCountdown] = useState(30);
 
   /*
   ============
@@ -55,6 +58,14 @@ const EasyMode = () => {
   }, [choiceOne, choiceTwo]);
 
   /*
+  =======
+  CONTEXT
+  =======
+  */
+
+  const { points, updatePoints } = usePointsContext();
+
+  /*
   =========
   FUNCTIONS
   =========
@@ -81,7 +92,7 @@ const EasyMode = () => {
   return (
     <>
       <header>
-        <h2>TILE Points: </h2>
+        <h2>TILE Points: {points}</h2>
       </header>
       {cards && (
         <section className="card-grid--easy">
