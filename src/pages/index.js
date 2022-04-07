@@ -5,17 +5,17 @@ export default function Home() {
   return (
     <>
       <header>
-        <h2>TILE Points: </h2>
+        <h2 className="points-text">TILE Points: </h2>
       </header>
-      <div>
+      <div className="btn-container">
         <Link href="/game-modes/easy-mode">
-          <a>Easy</a>
+          <a className="link-btn">Easy</a>
         </Link>
         <Link href="/game-modes/medium-mode">
-          <a>Medium</a>
+          <a className="link-btn">Medium</a>
         </Link>
         <Link href="/game-modes/hard-mode">
-          <a>Hard</a>
+          <a className="link-btn">Hard</a>
         </Link>
       </div>
     </>

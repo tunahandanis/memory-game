@@ -1,0 +1,25 @@
+.card-grid--easy {
+  margin: 3em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5em;
+  place-items: center;
+  padding: 5em;
+}
+
+.card {
+  position: relative;
+  border: 2px solid white;
+  border-radius: 5px;
+
+  &__front {
+    height: 12em;
+    background-color: #fff;
+  }
+
+  &__back {
+    height: 12em;
+    width: 12em;
+    background-color: #4f8a78;
+  }
+}

@@ -50,7 +50,7 @@ const EasyMode = () => {
         <h2>TILE Points: </h2>
       </header>
       {cards && (
-        <section>
+        <section className="card-grid--easy">
           {cards.map((card) => (
             <Card key={card.id} card={card} />
           ))}

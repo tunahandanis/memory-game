@@ -1,8 +1,10 @@
 const Card = ({ card }) => {
   return (
-    <article>
-      <img src={card.src} alt="card front" />
-      <div></div>
+    <article className="card">
+      <div>
+        <img src={card.src} className="card__front" alt="card front" />
+        <div className="card__back"></div>
+      </div>
     </article>
   );
 };
