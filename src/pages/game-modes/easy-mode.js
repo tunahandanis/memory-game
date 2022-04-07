@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Card from "../components/Card";
 
@@ -25,6 +25,17 @@ const EasyMode = () => {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [countdown, setCountdown] = useState(30);
+  const [isCountdownOn, setIsCountdownOn] = useState(false);
+  const [isGameFinished, setIsGameFinished] = useState(false);
+
+  /*
+  =========
+  REF HOOKS
+  =========
+  */
+
+  const countdownRef = useRef();
+  const countdownTimerRef = useRef();
 
   /*
   ============
@@ -34,6 +45,7 @@ const EasyMode = () => {
 
   useEffect(() => {
     shuffleCards();
+    setIsCountdownOn(true);
   }, []);
 
   useEffect(() => {
@@ -56,6 +68,18 @@ const EasyMode = () => {
       }
     }
   }, [choiceOne, choiceTwo]);
+
+  useEffect(() => {
+    if (isCountdownOn) {
+      countdownTimerRef.current = setInterval(checkCountdown, 1000);
+    }
+
+    return () => clearInterval(countdownTimerRef.current);
+  }, [isCountdownOn]);
+
+  useEffect(() => {
+    countdownRef.current = countdown;
+  }, [countdown]);
 
   /*
   =======
@@ -89,10 +113,24 @@ const EasyMode = () => {
     setDisabled(false);
   };
 
+  const checkCountdown = () => {
+    if (countdownRef.current > 0) {
+      setCountdown((prev) => prev - 1);
+    } else {
+    }
+  };
+
+  /*
+  ======
+  RETURN
+  ======
+  */
+
   return (
     <>
       <header>
         <h2>TILE Points: {points}</h2>
+        <h3>{countdown} seconds</h3>
       </header>
       {cards && (
         <section className="card-grid--easy">
