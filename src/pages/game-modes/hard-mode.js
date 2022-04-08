@@ -171,8 +171,8 @@ const HardMode = () => {
   return (
     <>
       <header>
-        <h2>TILE Points: {points}</h2>
-        <h3>{countdown} seconds</h3>
+        <h2 className="points">TILE Points: {points}</h2>
+        <h3 className="countdown">{countdown} seconds</h3>
       </header>
       {cards && (
         <section className="card-grid--hard">

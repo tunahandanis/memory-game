@@ -4,7 +4,7 @@ import { PointsProvider } from "../context/context";
 function MyApp({ Component, pageProps }) {
   return (
     <PointsProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </PointsProvider>
   );
 }
