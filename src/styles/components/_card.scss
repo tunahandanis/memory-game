@@ -5,6 +5,39 @@
   gap: 3em;
   padding: 5em;
   justify-content: center;
+
+  .card__back {
+    height: 12em;
+    width: 12em;
+  }
+}
+
+.card-grid--medium {
+  margin: 3em;
+  display: grid;
+  grid-template-columns: repeat(5, 10em);
+  gap: 3em;
+  padding: 5em;
+  justify-content: center;
+
+  .card__back {
+    height: 10em;
+    width: 10em;
+  }
+}
+
+.card-grid--hard {
+  margin: 3em;
+  display: grid;
+  grid-template-columns: repeat(6, 7em);
+  gap: 3em;
+  padding: 5em;
+  justify-content: center;
+
+  .card__back {
+    height: 7em;
+    width: 7em;
+  }
 }
 
 .card {
@@ -28,8 +61,6 @@
   }
 
   &__back {
-    height: 12em;
-    width: 12em;
     background-color: #333333;
     transition: all ease-in 0.15s;
     transition-delay: 0.15s;

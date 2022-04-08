@@ -25,7 +25,7 @@ const EasyMode = () => {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [countdown, setCountdown] = useState(30);
+  const [countdown, setCountdown] = useState(45);
   const [isCountdownOn, setIsCountdownOn] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
   const [cardLeft, setCardLeft] = useState(true);
@@ -178,7 +178,7 @@ const EasyMode = () => {
           ))}
         </section>
       )}
-      {isGameFinished && <FinishModal gameFailed={cardLeft} />}
+      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={20} />}
     </>
   );
 };

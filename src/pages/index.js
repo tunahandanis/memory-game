@@ -1,11 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import { usePointsContext } from "../context/context";
+
 export default function Home() {
+  const { points } = usePointsContext();
+
   return (
     <>
       <header>
-        <h2 className="points-text">TILE Points: </h2>
+        <h2 className="points-text">TILE Points: {points}</h2>
       </header>
       <div className="btn-container">
         <Link href="/game-modes/easy-mode">
