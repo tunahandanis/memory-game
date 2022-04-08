@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
-import Card from "../components/Card";
+import Card from "../../components/Card";
+import FinishModal from "../../components/FinishModal";
 
 import { usePointsContext } from "../../context/context";
 
@@ -27,6 +28,7 @@ const EasyMode = () => {
   const [countdown, setCountdown] = useState(30);
   const [isCountdownOn, setIsCountdownOn] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
+  const [cardLeft, setCardLeft] = useState(true);
 
   /*
   =========
@@ -34,8 +36,10 @@ const EasyMode = () => {
   =========
   */
 
+  // Will be used to keep state values inside interval functions up to date
   const countdownRef = useRef();
   const countdownTimerRef = useRef();
+  const cardsRef = useRef();
 
   /*
   ============
@@ -49,6 +53,7 @@ const EasyMode = () => {
   }, []);
 
   useEffect(() => {
+    // Check if choices match
     if (choiceOne && choiceTwo) {
       setDisabled(true);
 
@@ -70,6 +75,7 @@ const EasyMode = () => {
   }, [choiceOne, choiceTwo]);
 
   useEffect(() => {
+    // Set up countdown
     if (isCountdownOn) {
       countdownTimerRef.current = setInterval(checkCountdown, 1000);
     }
@@ -80,6 +86,18 @@ const EasyMode = () => {
   useEffect(() => {
     countdownRef.current = countdown;
   }, [countdown]);
+
+  useEffect(() => {
+    cardsRef.current = cards;
+
+    // At every move, check if the game is successfully completed
+    const checkCardLeft = cards.map((card) => card.matched).includes(false);
+
+    if (!checkCardLeft && cards.length !== 0) {
+      updatePoints((prev) => prev + 20);
+      finishGame();
+    }
+  }, [cards]);
 
   /*
   =======
@@ -117,6 +135,21 @@ const EasyMode = () => {
     if (countdownRef.current > 0) {
       setCountdown((prev) => prev - 1);
     } else {
+      finishGame();
+    }
+  };
+
+  const finishGame = () => {
+    setIsCountdownOn(false);
+    setIsGameFinished(true);
+
+    const checkCardLeft = cardsRef.current
+      .map((card) => card.matched)
+      .includes(false);
+
+    // Check if all cards are matched
+    if (!checkCardLeft) {
+      setCardLeft(false);
     }
   };
 
@@ -145,6 +178,7 @@ const EasyMode = () => {
           ))}
         </section>
       )}
+      {isGameFinished && <FinishModal gameFailed={cardLeft} />}
     </>
   );
 };
