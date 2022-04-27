@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import Anchor from "../components/Anchor";
+
 import { usePointsContext } from "../context/context";
 
 export default function Home() {
@@ -12,15 +14,27 @@ export default function Home() {
         <h2 className="points">TILE Points: {points}</h2>
       </header>
       <div className="btn-container">
-        <Link href="/game-modes/easy-mode">
-          <a className="link-btn">Easy</a>
-        </Link>
-        <Link href="/game-modes/medium-mode">
-          <a className="link-btn">Medium</a>
-        </Link>
-        <Link href="/game-modes/hard-mode">
-          <a className="link-btn">Hard</a>
-        </Link>
+        <Anchor
+          destination={"/game-modes/easy-mode"}
+          img={"/static/images/easy-splash.jpg"}
+          level={"Easy"}
+          pairNo={6}
+          reward={20}
+        />
+        <Anchor
+          destination={"/game-modes/medium-mode"}
+          img={"/static/images/medium-splash.jpg"}
+          level={"Medium"}
+          pairNo={10}
+          reward={40}
+        />
+        <Anchor
+          destination={"/game-modes/hard-mode"}
+          img={"/static/images/hard-splash.jpg"}
+          level={"Hard"}
+          pairNo={15}
+          reward={80}
+        />
       </div>
 
       <div className="guide">
