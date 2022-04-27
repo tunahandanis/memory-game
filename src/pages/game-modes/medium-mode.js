@@ -183,6 +183,7 @@ const MediumMode = () => {
               flipped={card === choiceOne || card === choiceTwo || card.matched}
               disabled={disabled}
               level={"medium"}
+              finished={isGameFinished}
             />
           ))}
         </section>

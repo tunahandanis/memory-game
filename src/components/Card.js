@@ -1,6 +1,6 @@
-const Card = ({ card, handleChoice, flipped, disabled, level }) => {
+const Card = ({ card, handleChoice, flipped, disabled, level, finished }) => {
   const handleClick = () => {
-    if (!disabled && !flipped) handleChoice(card);
+    if (!disabled && !flipped && !finished) handleChoice(card);
   };
 
   return (

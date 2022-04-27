@@ -179,6 +179,7 @@ const EasyMode = () => {
               flipped={card === choiceOne || card === choiceTwo || card.matched}
               disabled={disabled}
               level={"easy"}
+              finished={isGameFinished}
             />
           ))}
         </section>
