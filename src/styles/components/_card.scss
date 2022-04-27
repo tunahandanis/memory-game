@@ -43,6 +43,7 @@
 .card {
   position: relative;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 
   &__front {
     width: 100%;
@@ -51,7 +52,7 @@
     position: absolute;
     transform: rotateY(90deg);
     transition: all ease-in 0.15s;
-    border: 1px solid white;
+    border: 1px solid #fff;
     border-radius: 5px;
     -webkit-user-drag: none;
     user-select: none;
@@ -64,8 +65,23 @@
     background-color: #333333;
     transition: all ease-in 0.15s;
     transition-delay: 0.15s;
-    border: 1px solid white;
     border-radius: 5px;
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__back--easy {
+    background-image: url("/static/images/Level 3 bg.jpg");
+  }
+
+  &__back--medium {
+    background-image: url("/static/images/Level 1 bg.jpg");
+  }
+
+  &__back--hard {
+    background-image: url("/static/images/alternative.jpg");
   }
 }
 

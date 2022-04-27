@@ -1,4 +1,4 @@
-const Card = ({ card, handleChoice, flipped, disabled }) => {
+const Card = ({ card, handleChoice, flipped, disabled, level }) => {
   const handleClick = () => {
     if (!disabled && !flipped) handleChoice(card);
   };
@@ -7,7 +7,10 @@ const Card = ({ card, handleChoice, flipped, disabled }) => {
     <article className="card">
       <div className={`${flipped && "flipped"}`}>
         <img src={card.src} className="card__front" alt="card front" />
-        <div className="card__back" onClick={handleClick} />
+        <div
+          className={`card__back card__back--${level}`}
+          onClick={handleClick}
+        />
       </div>
     </article>
   );

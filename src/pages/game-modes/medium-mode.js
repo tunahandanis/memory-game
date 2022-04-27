@@ -178,6 +178,7 @@ const MediumMode = () => {
               handleChoice={handleChoice}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
               disabled={disabled}
+              level={"medium"}
             />
           ))}
         </section>

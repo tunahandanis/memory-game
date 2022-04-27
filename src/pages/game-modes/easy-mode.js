@@ -174,6 +174,7 @@ const EasyMode = () => {
               handleChoice={handleChoice}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
               disabled={disabled}
+              level={"easy"}
             />
           ))}
         </section>

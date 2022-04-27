@@ -183,6 +183,7 @@ const HardMode = () => {
               handleChoice={handleChoice}
               flipped={card === choiceOne || card === choiceTwo || card.matched}
               disabled={disabled}
+              level={"hard"}
             />
           ))}
         </section>
