@@ -13,6 +13,9 @@ export default function Home() {
       <header>
         <h2 className="points">TILE Points: {points}</h2>
       </header>
+
+      <h1 className="title">Crypto Cards</h1>
+
       <div className="btn-container">
         <Anchor
           destination={"/game-modes/easy-mode"}
@@ -35,16 +38,6 @@ export default function Home() {
           pairNo={15}
           reward={80}
         />
-      </div>
-
-      <div className="guide">
-        <h2 className="guide__title">How to Play</h2>
-        <p className="guide__para">
-          Try to match all cards before the time is up.
-        </p>
-        <p className="guide__para">
-          Easy mode gives 20 TILE Points, medium gives 40, and hard gives 80.
-        </p>
       </div>
     </>
   );
