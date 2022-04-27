@@ -12,6 +12,12 @@ export default function Home() {
     <>
       <header>
         <h2 className="points">TILE Points: {points}</h2>
+        <div className="conversion">
+          <button className="conversion__btn">
+            Convert TILE <br /> Points
+          </button>
+          <p className="conversion__warning">Frequent conversion is advised</p>
+        </div>
       </header>
 
       <h1 className="title">Crypto Cards</h1>

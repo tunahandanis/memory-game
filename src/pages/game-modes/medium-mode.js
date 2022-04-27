@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import Link from "next/link";
+
 import Card from "../../components/Card";
 import FinishModal from "../../components/FinishModal";
 
@@ -109,7 +111,7 @@ const MediumMode = () => {
   =======
   */
 
-  const { points, updatePoints } = usePointsContext();
+  const { updatePoints } = usePointsContext();
 
   /*
   =========
@@ -166,7 +168,9 @@ const MediumMode = () => {
   return (
     <>
       <header>
-        <h2 className="points">TILE Points: {points}</h2>
+        <Link href="/">
+          <a className="logo">Crypto Cards</a>
+        </Link>
         <h3 className="countdown">{countdown} seconds</h3>
       </header>
       {cards && (
