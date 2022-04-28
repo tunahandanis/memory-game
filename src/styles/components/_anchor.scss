@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as *;
+
 .anchor {
   position: relative;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.3);
@@ -30,14 +32,38 @@
       margin-top: -0.3em;
       font-weight: 400;
       letter-spacing: 2px;
+
+      @include mq(large) {
+        font-size: 2.4rem;
+      }
+
+      @include mq(medium) {
+        font-size: 2.2rem;
+      }
     }
 
     .anchor__pair-number {
       font-size: 1.7rem;
+
+      @include mq(large) {
+        font-size: 1.5rem;
+      }
+
+      @include mq(medium) {
+        font-size: 1.3rem;
+      }
     }
 
     .anchor__reward {
       font-size: 1.3rem;
+
+      @include mq(large) {
+        font-size: 1.15rem;
+      }
+
+      @include mq(medium) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -52,6 +78,16 @@
     background-repeat: no-repeat;
     height: 15em;
     width: 15em;
+
+    @include mq(large) {
+      width: 13em;
+      height: 13em;
+    }
+
+    @include mq(medium) {
+      width: 12em;
+      height: 12em;
+    }
   }
 
   &--flipped {

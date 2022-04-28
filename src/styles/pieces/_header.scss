@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as *;
+
 header {
   height: 10vh;
   padding: 1.5em;
@@ -10,6 +12,14 @@ header {
     margin-bottom: 0.5em;
     font-weight: 400;
     letter-spacing: 1px;
+
+    @include mq(large) {
+      font-size: 1.7rem;
+    }
+
+    @include mq(medium) {
+      font-size: 1.55rem;
+    }
   }
 
   .countdown {
@@ -47,6 +57,14 @@ header {
       margin-bottom: 1em;
       transition: all 0.4s ease;
 
+      @include mq(large) {
+        font-size: 1.15rem;
+      }
+
+      @include mq(medium) {
+        font-size: 1.1rem;
+      }
+
       &:hover {
         color: #333;
         background-color: #fff;
@@ -57,6 +75,13 @@ header {
     .conversion__warning {
       font-weight: 400;
       color: rgb(207, 0, 0);
+      @include mq(large) {
+        font-size: 0.95rem;
+      }
+
+      @include mq(medium) {
+        font-size: 0.9rem;
+      }
     }
   }
 }

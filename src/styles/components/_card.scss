@@ -1,42 +1,39 @@
 .card-grid--easy {
-  margin: 3em;
   display: grid;
-  grid-template-columns: repeat(4, 12em);
-  gap: 3em;
+  grid-template-columns: repeat(4, 20vh);
+  gap: 2em;
   padding: 5em;
   justify-content: center;
 
   .card__back {
-    height: 12em;
-    width: 12em;
+    height: 20vh;
+    width: 20vh;
   }
 }
 
 .card-grid--medium {
-  margin: 3em;
   display: grid;
-  grid-template-columns: repeat(5, 10em);
-  gap: 3em;
-  padding: 5em;
+  grid-template-columns: repeat(5, 16vh);
+  gap: 1.5em;
+  padding: 3em;
   justify-content: center;
 
   .card__back {
-    height: 10em;
-    width: 10em;
+    height: 16vh;
+    width: 16vh;
   }
 }
 
 .card-grid--hard {
-  margin: 3em;
   display: grid;
-  grid-template-columns: repeat(6, 7em);
-  gap: 3em;
+  grid-template-columns: repeat(6, 12vh);
+  gap: 1.5em;
   padding: 5em;
   justify-content: center;
 
   .card__back {
-    height: 7em;
-    width: 7em;
+    height: 12vh;
+    width: 12vh;
   }
 }
 
