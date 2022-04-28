@@ -10,6 +10,12 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Crypto Cards | TILE Games</title>
+        <meta name="description" content="Crypto Cards game by TILE Games." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <header>
         <h2 className="points">TILE Points: {points}</h2>
         <div className="conversion">

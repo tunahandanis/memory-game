@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
 import Link from "next/link";
+import Head from "next/head";
 
 import Card from "../../components/Card";
 import FinishModal from "../../components/FinishModal";
@@ -172,6 +173,14 @@ const HardMode = () => {
 
   return (
     <>
+      <Head>
+        <title>Hard | Crypto Cards</title>
+        <meta
+          name="description"
+          content="Hard difficulty mode of the game Crypto Cards"
+        />
+      </Head>
+
       <header>
         <Link href="/">
           <a className="logo">Crypto Cards</a>
