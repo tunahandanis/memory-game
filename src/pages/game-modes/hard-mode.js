@@ -36,7 +36,7 @@ const HardMode = () => {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [countdown, setCountdown] = useState(150);
+  const [countdown, setCountdown] = useState(120);
   const [isCountdownOn, setIsCountdownOn] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
   const [cardLeft, setCardLeft] = useState(true);

@@ -31,7 +31,7 @@ const MediumMode = () => {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [countdown, setCountdown] = useState(90);
+  const [countdown, setCountdown] = useState(75);
   const [isCountdownOn, setIsCountdownOn] = useState(false);
   const [isGameFinished, setIsGameFinished] = useState(false);
   const [cardLeft, setCardLeft] = useState(true);
