@@ -1,11 +1,14 @@
 import "../styles/style.scss";
 import { PointsProvider } from "../context/context";
+import { AccountContextProvider } from "../context/accountContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <PointsProvider>
-      <Component {...pageProps} />
-    </PointsProvider>
+    <AccountContextProvider>
+      <PointsProvider>
+        <Component {...pageProps} />
+      </PointsProvider>
+    </AccountContextProvider>
   );
 }
 
