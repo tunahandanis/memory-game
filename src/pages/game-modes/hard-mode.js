@@ -106,7 +106,7 @@ const HardMode = () => {
     const checkCardLeft = cards.map((card) => card.matched).includes(false);
 
     if (!checkCardLeft && cards.length !== 0) {
-      updatePoints((prev) => prev + 80);
+      updatePoints((prev) => prev + 20);
       finishGame();
     }
   }, [cards]);
@@ -202,7 +202,7 @@ const HardMode = () => {
           ))}
         </section>
       )}
-      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={80} />}
+      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={20} />}
     </>
   );
 };

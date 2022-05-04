@@ -165,7 +165,7 @@ export default function Home() {
             </button>
           </div>
           <p className="conversion__exchange-info">
-            1 TILE Points = 1 TILE Token
+            10 TILE Points = 1 TILE Token
           </p>
           <p className="conversion__warning">Frequent conversion is advised</p>
         </div>
@@ -179,21 +179,21 @@ export default function Home() {
           img={"/static/images/easy-splash.jpg"}
           level={"Easy"}
           pairNo={6}
-          reward={0.5}
+          reward={5}
         />
         <Anchor
           destination={"/game-modes/medium-mode"}
           img={"/static/images/medium-splash.jpg"}
           level={"Medium"}
           pairNo={10}
-          reward={1}
+          reward={10}
         />
         <Anchor
           destination={"/game-modes/hard-mode"}
           img={"/static/images/hard-splash.jpg"}
           level={"Hard"}
           pairNo={15}
-          reward={2}
+          reward={20}
         />
       </div>
     </>

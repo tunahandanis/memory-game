@@ -97,7 +97,7 @@ const EasyMode = () => {
     const checkCardLeft = cards.map((card) => card.matched).includes(false);
 
     if (!checkCardLeft && cards.length !== 0) {
-      updatePoints((prev) => prev + 20);
+      updatePoints((prev) => prev + 5);
       finishGame();
     }
   }, [cards]);
@@ -193,7 +193,7 @@ const EasyMode = () => {
           ))}
         </section>
       )}
-      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={20} />}
+      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={5} />}
     </>
   );
 };

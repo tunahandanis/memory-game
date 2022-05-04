@@ -101,7 +101,7 @@ const MediumMode = () => {
     const checkCardLeft = cards.map((card) => card.matched).includes(false);
 
     if (!checkCardLeft && cards.length !== 0) {
-      updatePoints((prev) => prev + 40);
+      updatePoints((prev) => prev + 10);
       finishGame();
     }
   }, [cards]);
@@ -197,7 +197,7 @@ const MediumMode = () => {
           ))}
         </section>
       )}
-      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={40} />}
+      {isGameFinished && <FinishModal gameFailed={cardLeft} pointGain={10} />}
     </>
   );
 };
