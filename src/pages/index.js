@@ -61,10 +61,72 @@ export default function Home() {
         ethers.utils.parseUnits(tokenToClaim.toString(), "ether")
       );
 
+      /*
+      ==============================================
+      VARIABLES THAT SHOULD BE INSERTED TO
+      DATABASE ALONG WITH tokenToClaim WHICH'S ABOVE
+      ==============================================
+      */
+
+      const transactionType = "Reward";
+
+      const transactionID = transaction.hash;
+
+      // I'm confused about this, transaction.to seems to be the address Dominic provided,
+      // and transaction.from is my wallet address, isn't it supposed to be the other way around?
+      // For now, I'm switching them up, please correct any mistakes
+      const from = transaction.to;
+      const to = transaction.from;
+
+      const game = "Crypto Cards";
+
+      const d = new Date();
+      const date = d.toLocaleDateString() + "\n" + d.toLocaleTimeString();
+
       await transaction.wait();
-      updatePoints(points - tokenToClaim * 10);
+
+      const consoleMsg =
+        "**********************************\n" +
+        "\nTransaction ID: " +
+        transactionID +
+        "\n\nFrom: " +
+        from +
+        "\n\nTo: " +
+        to +
+        "\n\nTransaction Type: " +
+        transactionType +
+        "\n\nTILE Amount: " +
+        tokenToClaim +
+        "\n\nGame: " +
+        game +
+        "\n\nDate: " +
+        date +
+        "\n\n**********************************";
+
+      /*
+      ===================================================
+      INSERT THE FOLLOWING DATA TO THE TRANSACTIONS TABLE
+
+      string transactionID
+
+      double tokenToClaim: Amount of TILE tokens claimed
+      
+      string transactionType: Type of transaction processed
+
+      string from: User wallet address
+
+      string to: Wallet address from which TILE is withdrawn 
+
+      string game: The game in which the TILE is earned
+
+      string date: Local date and time of transaction
+      ===================================================
+      */
+
+      updatePoints(0);
 
       console.log(transaction);
+      console.log(consoleMsg);
     } catch (error) {
       console.log(error);
     }
@@ -103,7 +165,7 @@ export default function Home() {
             </button>
           </div>
           <p className="conversion__exchange-info">
-            10 TILE Points = 1 TILE Token
+            1 TILE Points = 1 TILE Token
           </p>
           <p className="conversion__warning">Frequent conversion is advised</p>
         </div>
@@ -117,21 +179,21 @@ export default function Home() {
           img={"/static/images/easy-splash.jpg"}
           level={"Easy"}
           pairNo={6}
-          reward={20}
+          reward={0.5}
         />
         <Anchor
           destination={"/game-modes/medium-mode"}
           img={"/static/images/medium-splash.jpg"}
           level={"Medium"}
           pairNo={10}
-          reward={40}
+          reward={1}
         />
         <Anchor
           destination={"/game-modes/hard-mode"}
           img={"/static/images/hard-splash.jpg"}
           level={"Hard"}
           pairNo={15}
-          reward={80}
+          reward={2}
         />
       </div>
     </>
