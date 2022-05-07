@@ -55,7 +55,7 @@ export default function Home() {
         signer
       );
 
-      const tokenToClaim = points / 10;
+      const tokenToClaim = points / 10000;
 
       let transaction = await connectedContract.claimTile(
         ethers.utils.parseUnits(tokenToClaim.toString(), "ether")
@@ -165,7 +165,7 @@ export default function Home() {
             </button>
           </div>
           <p className="conversion__exchange-info">
-            10 TILE Points = 1 TILE Token
+            10000 TILE Points = 1 TILE Token
           </p>
           <p className="conversion__warning">Frequent conversion is advised</p>
         </div>
