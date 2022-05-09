@@ -10,12 +10,7 @@ const FinishModal = ({ gameFailed, pointGain }) => {
           <>
             <p className="modal__result">You won!</p>
             <p className="modal__reward">
-              You have earned <span>{pointGain}</span> TILE Points!
-            </p>
-            <p className="modal__warning">
-              Please make sure to convert your <br /> TILE Points in the main
-              menu as they will be lost <br /> if you refresh the page or close
-              the browser.
+              You have earned <span>{pointGain}</span> Game Points!
             </p>
           </>
         )}

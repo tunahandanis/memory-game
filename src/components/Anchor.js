@@ -24,7 +24,7 @@ const Anchor = ({ destination, img, level, pairNo, reward }) => {
           <div className="anchor__front">
             <h3 className="anchor__level">{level}</h3>
             <p className="anchor__pair-number">{pairNo} Pairs of Cards</p>
-            <p className="anchor__reward">Reward: {reward} TILE Points</p>
+            <p className="anchor__reward">Reward: {reward} Game Points</p>
           </div>
           <img src={img} alt="game mode image" className="anchor__back" />
         </div>

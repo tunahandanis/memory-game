@@ -55,14 +55,14 @@
     }
 
     .anchor__reward {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
 
       @include mq(large) {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
       }
 
       @include mq(medium) {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
     }
   }

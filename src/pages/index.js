@@ -9,6 +9,8 @@ import { usePointsContext } from "../context/context";
 
 import { contractAddress, contractABI } from "../abi/contract";
 
+import axios from "axios";
+
 import { ethers } from "ethers";
 
 import {
@@ -41,6 +43,28 @@ export default function Home() {
     buttonText = "Switch Network";
   } else {
     buttonText = "Connect Wallet";
+  }
+
+  async function insertTransaction(
+    transactionID,
+    tokenToClaim,
+    transactionType,
+    from,
+    to,
+    game,
+    date
+  ) {
+    const newTransaction = {
+      transactionId: transactionID,
+      date: date,
+      transactionType: transactionType,
+      from: from,
+      to: to,
+      game: game,
+      tokenToClaim: tokenToClaim,
+    };
+
+    axios.post("http://localhost:3001/makeTransaction", newTransaction);
   }
 
   const claimTile = async () => {
@@ -81,9 +105,19 @@ export default function Home() {
       const game = "Crypto Cards";
 
       const d = new Date();
-      const date = d.toLocaleDateString() + "\n" + d.toLocaleTimeString();
+      const date = d.toLocaleDateString() + "-" + d.toLocaleTimeString();
 
       await transaction.wait();
+
+      insertTransaction(
+        transactionID,
+        tokenToClaim,
+        transactionType,
+        from,
+        to,
+        game,
+        date
+      );
 
       const consoleMsg =
         "**********************************\n" +
@@ -147,7 +181,7 @@ export default function Home() {
       </Head>
 
       <header>
-        <h2 className="points">TILE Points: {points}</h2>
+        <h2 className="points">Game Points: {points}</h2>
         <div className="conversion">
           <div className="conversion__btn-container">
             <button
@@ -161,13 +195,12 @@ export default function Home() {
                 : buttonText}
             </button>
             <button className="conversion__btn" onClick={claimTile}>
-              Convert TILE <br /> Points
+              Convert Game <br /> Points
             </button>
           </div>
           <p className="conversion__exchange-info">
-            10000 TILE Points = 1 TILE Token
+            10000 Game Points = 1 TILE Token
           </p>
-          <p className="conversion__warning">Frequent conversion is advised</p>
         </div>
       </header>
 
